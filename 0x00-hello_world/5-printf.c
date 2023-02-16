@@ -8,11 +8,8 @@
 
 int main(void)
 {
-  /* Initialize string */
-char my_string[] = "with proper grammar, but the outcome is a piece of art,";
-
   /* send my_string to stdout */
-printf (my_string);
+printf ("with proper grammar, but the outcome is a piece of art,");
 
 return (0);
 }

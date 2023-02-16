@@ -1,2 +1,2 @@
 #!/bin/bash
-OFILE=${CFILE/%c/s} && gcc -S $CFILE -o $OFILE
+gcc -c $CFILE -o ${CFILE/%c/s}

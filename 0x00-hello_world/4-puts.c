@@ -9,10 +9,10 @@
 int main(void)
 {
   /* Initialize string */
-  char my_string[] = "\"Programming is like building a multilingual puzzle";
+char my_string[] = "\"Programming is like building a multilingual puzzle";
 
   /* send my_string to stdout */
-  puts(my_string);
+puts(my_string);
 
-  return (0);
+return (0);
 }

@@ -9,20 +9,24 @@
 
 int main(void)
 {
-int i, j;
+int i, j, k;
 
 for (i = '0'; i < '9'; i++)
 {
 for (j = i + 1; j <= '9'; j++)
 {
-if (j != i)
+for (k = j + 1; k <= '9'; k++)
+{
+if ((j != i) != k)
 {
 putchar(i);
 putchar(j);
-if (i == '8' && j == '9')
+putchar(k);
+if (i == '7' && j == '8')
 continue;
 putchar(',');
 putchar(' ');
+}
 }
 }
 }

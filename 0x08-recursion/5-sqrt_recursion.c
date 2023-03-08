@@ -6,8 +6,7 @@ int _sqrt(int prev, int root);
 /**
  * _sqrt_recursion - a function that returns the
  * natural square root of a number
- * @x: An integer input
- * @y: Another integer input
+ * @n: An integer input
  * Return: a value
  */
 

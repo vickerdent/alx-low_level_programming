@@ -3,8 +3,9 @@
 
 /**
  * main - check the code
- *
- * Return: Always 0.
+ * @argc: counter
+ * @argv: values
+ * Return: Always 0
  */
 int main(int argc, char *argv[])
 {

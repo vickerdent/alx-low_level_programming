@@ -1,5 +1,5 @@
 #include "main.h"
-#include <string.h>
+#include <stdio.h>
 
 /**
  * *_strpbrk - a function that searches a string for
@@ -11,7 +11,18 @@
 
 char *_strpbrk(char *s, char *accept)
 {
-char *ret;
-ret = strpbrk(s, accept);
-return (ret);
+char *start = accept;
+while (*s)
+{
+while (*accept)
+{
+if (*accept == *s)
+return (s);
+accept++;
+}
+
+accept = start;
+s++;
+}
+return (NULL);
 }

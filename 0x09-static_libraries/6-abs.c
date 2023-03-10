@@ -1,5 +1,5 @@
 #include "main.h"
-#include <stdlib.h>
+
 /**
  * _abs - function computes the absolute value of an integer
  * @c: An input character
@@ -9,5 +9,8 @@
  */
 int _abs(int c)
 {
-return (abs(c));
+if (c >= 0)
+return (c);
+else
+return (c * -1);
 }

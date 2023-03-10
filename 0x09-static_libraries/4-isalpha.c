@@ -1,5 +1,5 @@
 #include "main.h"
-#include <ctype.h>
+
 /**
  * _islower - function returns 1 if lowercase
  * @c: An input character
@@ -9,9 +9,16 @@
  */
 int _islower(int c)
 {
-if (islower(c))
+char lower, upper;
+int isletter = 0;
+
+for (lower = 'a'; lower <= 'z'; lower++)
 {
-return (1);
+for (upper = 'A'; upper <= 'Z'; upper++)
+{
+if (c == lower || c == upper)
+isletter = 1;
 }
-return (0);
+}
+return (isletter);
 }

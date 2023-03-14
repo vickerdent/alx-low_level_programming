@@ -9,43 +9,44 @@
 
 char **strtow(char *str)
 {
-char **array;
-int i = 0, j, m, k = 0, len = 0, count = 0;
+char **ret, *ptr = str;
+int wc = 0, i = 0;
 
-if (str == NULL || *str == '\0')
-return (NULL);
-for (; str[i]; i++)
+if (str == 0 || *str == 0)
+return (0);
+while (*ptr)
 {
-if ((str[i] != ' ' || *str != '\t') &&
-((str[i + 1] == ' ' || str[i + 1] == '\t') || str[i + 1] == '\n'))
-count++;
+if (!(*ptr == ' ') && (*(ptr + 1) == ' ' || *(ptr + 1) == 0))
+wc++;
+ptr++;
 }
-if (count == 0)
+if (wc == 0)
 return (NULL);
-array = malloc(sizeof(char *) * (count + 1));
-if (array == NULL)
-return (NULL);
-for (i = 0; str[i] != '\0' && k < count; i++)
+ret = malloc((wc + 1) * sizeof(char *));
+if (ret == 0)
+return (0);
+while (*str)
 {
-if (str[i] != ' ' || str[i] != '\t')
+if (*str != ' ')
 {
-len = 0;
-j = i;
-while ((str[j] != ' ' || str[j] != '\t') && str[j] != '\0')
-j++, len++;
-array[k] = malloc((len + 1) * sizeof(char));
-if (array[k] == NULL)
+for (ptr = str, wc = 0; *ptr != ' ' && *ptr != 0;)
+wc++, ptr++;
+ret[i] = malloc(wc + 1);
+if (ret[i] == 0)
 {
-for (k = k - 1; k >= 0; k++)
-free(array[k]);
-free(array);
-return (NULL);
+while (i >= 0)
+free(ret[--i]);
+free(ret);
+return (0);
 }
-for (m = 0; m < len; m++, i++)
-array[k][m] = str[i];
-array[k++][m] = '\0';
+ptr = ret[i++];
+while (*str != ' ' && *str != 0)
+*ptr++ = *str++;
+*ptr = 0;
 }
+else
+str++;
 }
-array[k] = NULL;
-return (array);
+ret[i] = 0;
+return (ret);
 }

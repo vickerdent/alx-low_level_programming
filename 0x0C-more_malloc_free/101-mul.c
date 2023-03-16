@@ -56,7 +56,7 @@ if (ret == 0)
 exit(98);
 }
 
-size = size * num;
+size = size *num;
 ptr = ret;
 ptr[--size] = 0;
 while (size--)

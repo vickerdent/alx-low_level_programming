@@ -9,15 +9,14 @@
 
 unsigned int flip_bits(unsigned long int n, unsigned long int m)
 {
-unsigned long int maximum_value = 0x01;
-unsigned int turns = 0;
-unsigned long int compar = (n ^ m);
+unsigned int maximum_value = 0;
+unsigned long int turns = n ^ m;
 
-while (maximum_value <= compar)
+while (turns)
 {
-if (maximum_value & compar)
-turns++;
-maximum_value <<= 1;
+if (turns & 1ul)
+maximum_value++;
+turns = turns >> 1;
 }
-return (turns);
+return (maximum_value);
 }

@@ -9,11 +9,11 @@
 
 int clear_bit(unsigned long int *n, unsigned int index)
 {
-unsigned long int maximum_value = 0x01;
+unsigned int in_placeholder = index;
 
-maximum_value = ~(maximum_value << index);
-if (maximum_value == 0x00)
+if (in_placeholder > 63)
 return (-1);
-*n &= maximum_value;
+
+*n = *n & ~(1ul << in_placeholder);
 return (1);
 }

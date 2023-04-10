@@ -1,0 +1,18 @@
+#include "lists.h"
+#include <stddef.h>
+
+/**
+ * print_listint - check code
+ * @h: A list_h input pointer
+ * Return: value
+ */
+
+size_t listint_len(const listint_t *h)
+{
+size_t me;
+if (h == NULL)
+return (0);
+for (me = 0; h != NULL; h = h->next, me++)
+printf("%d\n", h->n);
+return (me);
+}

@@ -36,7 +36,7 @@ return (newtable);
 /**
  * hashdllsort - check the code
  * @ht: hash table with sorted dll
- * @node: address of node
+ * @movnode: address of node
  * Return: void
  */
 void hashdllsort(shash_table_t *ht, shash_node_t *movnode)
@@ -62,7 +62,7 @@ return;
 ptr = ptr->snext;
 while (ptr != NULL)
 {
-if(strcmp(movnode->key, ptr->key) < 0)
+if (strcmp(movnode->key, ptr->key) < 0)
 {
 movnode->snext = ptr;
 movnode->sprev = ptr->sprev;
@@ -154,7 +154,7 @@ unsigned long int idx;
 idx = key_index((const unsigned char *) key, ht->size);
 ptr = ht->array[idx];
 while (ptr != NULL)
-if(strcmp(ptr->key, key) == 0)
+if (strcmp(ptr->key, key) == 0)
 return (strdup(ptr->value));
 return (NULL);
 }
@@ -207,6 +207,11 @@ ptr = ptr->sprev;
 printf("}\n");
 }
 
+/**
+ * shash_table_delete - check the code
+ * @ht: hast table to print
+ * Return: void
+ */
 void shash_table_delete(shash_table_t *ht)
 {
 shash_node_t *ptr, *next;
